@@ -8,8 +8,14 @@ export class Count extends Component {
 
     this.state = {
       count: 0,
+      timing: 0,
     };
   }
+componentDidMount(){
+    setInterval(() => {
+        this.setState({timing : this.state.timing+1})
+    }, 1000);
+}
   increment = () => {
     this.setState({ count: this.state.count + 1 });
   };
@@ -26,6 +32,7 @@ export class Count extends Component {
         <button onClick={this.decrement}>-</button>
         <br></br>
         <Profil/>
+        <h1>{this.state.timing}</h1>
       </div>
     );
   }
