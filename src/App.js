@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
-import counter from './component/counter'
-
+import React, { Component } from "react";
+import Count from "./component/Count";
+import 'bootstrap/dist/css/bootstrap.min.css';
 export class App extends Component {
-  state = {show:false,}
+  state = { show : false };
   toggle = () => {
-this.setState({show:!this.state.show})    
-  }
+    this.setState({ show: !this.state.show });
+  };
   render() {
     return (
       <div>
-        <button onClick={this.toggle}>{this.state.show ? "Hide" : "Show"}</button>{this.state.show ? <counter/> : "Cliquer pour afficher le compteur"}
+        <div align="center">
+        <button onClick={this.toggle}>
+        
+         {this.state.show ? "Hide" : "Show"}
+        </button></div>
+        {this.state.show ? <Count/>   : <div align="center">Cliquer pour afficher le compteur</div>}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
